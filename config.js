@@ -78,7 +78,7 @@ const portfolioConfig = {
     experienceYears: "5+",
     education: {
       degree: "Computer Science",
-      university: "University Name"
+      university: "University Of Technology"
     },
     coreTechnologies: [
       "JavaScript",
