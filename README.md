@@ -1,10 +1,10 @@
 # Developer Portfolio Template
 
-A modern, responsive developer portfolio template built with HTML, Tailwind CSS, and JavaScript. This template features dark/light mode, smooth animations, and sections for showcasing your skills, projects, and contact information.
+A modern, responsive developer portfolio template built with HTML, CSS, JavaScript, and configuration options. This template features dark/light mode, smooth animations, and sections for showcasing your skills, projects, and contact information.
 
 ## Features
 
-- **Single HTML file**: easy to upload and maintain
+- **Modular Structure**: Organized with separate HTML, CSS, JavaScript, and configuration files
 - **Responsive Design**: Looks great on all devices (desktop, tablet, mobile)
 - **Dark/Light Mode**: Toggle between dark and light themes with persistent preference
 - **Smooth Animations**: Engaging scroll animations using AOS library
@@ -12,7 +12,14 @@ A modern, responsive developer portfolio template built with HTML, Tailwind CSS,
 - **Project Showcase**: Highlight your best work with images and descriptions
 - **Skills Section**: Showcase your technical expertise with visual indicators
 - **Contact Form**: Ready-to-use contact form (requires backend implementation)
-- **Easy Customization**: Well-commented code for easy personalization
+- **Easy Customization**: Well-commented code and separate configuration file for easy personalization
+
+## Project Structure
+
+- **index.html**: Main HTML structure and content
+- **styles.css**: All styling rules and theme variables
+- **script.js**: JavaScript functionality and interactions
+- **config.js**: Configuration settings for customizing portfolio content
 
 ## How to Use
 
@@ -27,15 +34,12 @@ Or simply download the ZIP file and extract it.
 
 ### 2. Customize the Content
 
-The HTML file contains comments to help you navigate and customize different sections:
+Edit the files to customize your portfolio:
 
-- **Personal Information**: Update your name, title, social links, and photo
-- **About Section**: Add your experience, education, and personal bio
-- **Projects Section**: Showcase your projects with images, descriptions, and links
-- **Skills Section**: Customize the skills and technologies you're proficient in
-- **Contact Section**: Update your contact information and form settings
-
-Look for comments like `<!-- CUSTOMIZE: Your Name -->` throughout the HTML file.
+- **config.js**: Update your personal information, projects, skills, and contact details
+- **index.html**: Modify the structure if needed (most customization can be done through config.js)
+- **styles.css**: Change theme colors and styling preferences
+- **script.js**: Add additional functionality if required
 
 ### 3. Replace Images
 
@@ -46,7 +50,7 @@ Replace the placeholder images with your own:
 
 ### 4. Customize Colors and Styling
 
-The primary colors are defined at the top of the file in the Tailwind configuration and CSS variables. 
+The primary colors are defined in the styles.css file using CSS variables. 
 Change these to match your personal brand:
 
 ```css
@@ -90,7 +94,8 @@ The contact form requires a backend service to process form submissions. You hav
 
 ## Customization Tips
 
-- **Colors**: Edit the Tailwind configuration and CSS variables to match your brand
+- **Configuration**: Most content can be customized through the config.js file
+- **Colors**: Edit the CSS variables in styles.css to match your brand
 - **Fonts**: Import your preferred fonts and update the font-family in the CSS
 - **Content**: Focus on quality over quantity in your projects and descriptions
 - **Images**: Use high-quality, optimized images (consider using .webp format)
