@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<!-- 
+  Developer Portfolio Template
+  This template can be easily customized to create your personal portfolio.
+  Look for comments labeled with "CUSTOMIZE:" to find areas you should edit.
+  
+  HOW TO USE:
+  1. Edit the personal information (name, title, links, etc.)
+  2. Update the about section with your background
+  3. Add your own projects to the projects section
+  4. Customize your skills in the skills section
+  5. Update contact information
+  6. Deploy to GitHub Pages or your preferred hosting
+-->
+<html lang="en" class="light scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CUSTOMIZE: Your Name and Title -->
+    <title>Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // CUSTOMIZE: Main colors of your portfolio
+                        primary: {
+                            DEFAULT: '#111111',
+                            light: '#333333',
+                        },
+                        secondary: {
+                            DEFAULT: '#FF6B00',
+                            light: '#FF8A3D',
+                            dark: '#E95800',
+                        }
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CUSTOMIZE: Color scheme for light/dark modes */
+        :root {
+            --color-bg-primary: #ffffff;
+            --color-bg-secondary: #f5f5f5;
+            --color-bg-accent: #FF6B00;
+            --color-text-primary: #111111;
+            --color-text-secondary: #333333;
+            --color-text-accent: #FF6B00;
+            --color-bg-card: #ffffff;
+            --color-bg-gradient-from: #111111;
+            --color-bg-gradient-to: #FF6B00;
+            --color-border: #e5e7eb;
+            --color-button: #FF6B00;
+            --color-button-hover: #FF8A3D;
+        }
+
+        .dark {
+            --color-bg-primary: #111111;
+            --color-bg-secondary: #1e1e1e;
+            --color-bg-accent: #FF6B00;
+            --color-text-primary: #f9fafb;
+            --color-text-secondary: #e5e7eb;
+            --color-text-accent: #FF8A3D;
+            --color-bg-card: #1a1a1a;
+            --color-bg-gradient-from: #000000;
+            --color-bg-gradient-to: #FF6B00;
+            --color-border: #2e2e2e;
+            --color-button: #FF6B00;
+            --color-button-hover: #E95800;
+        }
+        
+        /* Rest of the styles - you can keep these as is */
+        body {
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .clip-path-diagonal {
+            /* Removing clip path to prevent content from being cut */
+            clip-path: none;
+            -webkit-clip-path: none;
+            position: relative;
+            z-index: 1;
+        }
+        .clip-path-diagonal-reverse {
+            /* Removing clip path to prevent content from being cut */
+            clip-path: none;
+            -webkit-clip-path: none;
+            position: relative;
+            z-index: 1;
+        }
+        .bg-gradient-creative {
+            background: linear-gradient(135deg, #111111, #222222, #333333, #FF6B00);
+            background-size: 100% 100%;
+        }
+        .bg-gradient-subtle {
+            background: linear-gradient(135deg, var(--color-bg-gradient-from) 0%, #333333 50%, var(--color-bg-gradient-to) 100%);
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        @-webkit-keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .tech-stack li {
+            transition: all 0.3s ease;
+        }
+        .tech-stack li:hover {
+            transform: translateY(-5px);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        @media (max-width: 768px) {
+            .clip-path-diagonal, .clip-path-diagonal-reverse {
+                clip-path: none;
+                -webkit-clip-path: none;
+            }
+        }
+        @-webkit-keyframes float {
+            0%, 100% { -webkit-transform: translateY(0); transform: translateY(0); }
+            50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+            -webkit-animation: float 3s ease-in-out infinite;
+        }
+        /* Add clean section separators */
+        .section-separator {
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-bg-gradient-from), var(--color-bg-gradient-to), var(--color-bg-gradient-from));
+            width: 100%;
+            margin: 0;
+        }
+        .theme-card {
+            background-color: var(--color-bg-card);
+            border-color: var(--color-border);
+        }
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .nav-scrolled {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 75%;
+            height: 100vh;
+            z-index: 9999;
+            transition: right 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Animated scroll down indicator */
+        .scroll-down-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Glass effect for cards */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Text gradient */
+        .text-gradient {
+            background: linear-gradient(to right, var(--color-bg-gradient-from), var(--color-bg-gradient-to));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Add dark mode specific gradient for better visibility */
+        .dark .text-gradient {
+            background: linear-gradient(to right, #ffffff, var(--color-text-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Section titles improvement */
+        section h2 .relative.z-10 {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+        }
+        
+        /* Make the section title accent span more visible in dark mode */
+        .dark section h2 .absolute {
+            background-color: var(--color-text-accent);
+            opacity: 0.4;
+        }
+        
+        /* Pulsing animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulsing {
+            animation: pulse 2s infinite;
+        }
+
+        .revealed {
+            opacity: 1 !important;
+        }
+        
+        /* Tech carousel styles */
+        .tech-carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+        
+        .tech-track {
+            display: flex;
+            width: fit-content;
+            animation: tech-scroll 40s linear infinite;
+        }
+        
+        .tech-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .tech-item {
+            flex: 0 0 auto;
+            width: 120px;
+            height: 120px;
+            margin: 0 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-bg-secondary);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid transparent;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--color-bg-primary);
+            border-color: var(--color-text-accent);
+        }
+        
+        /* Dark mode specific tech-item styling */
+        .dark .tech-item {
+            background-color: #1a1a1a;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 107, 0, 0.1);
+        }
+        
+        .dark .tech-item:hover {
+            background-color: #222222;
+            border-color: var(--color-text-accent);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--color-text-accent);
+        }
+        
+        /* Ensuring text is readable in dark mode */
+        .dark .tech-item span {
+            color: rgba(229, 231, 235, 0.9); /* Light gray for better contrast */
+        }
+        
+        /* Tech icons color enhancement */
+        .tech-item i {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+        }
+        
+        .tech-item:hover i {
+            transform: scale(1.1);
+            filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
+        }
+        
+        .dark .tech-item i {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        /* Subtle glow effect for icons in dark mode */
+        .dark .tech-item:hover i.fab.fa-html5 { filter: drop-shadow(0 0 5px rgba(230, 81, 0, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-css3-alt { filter: drop-shadow(0 0 5px rgba(21, 114, 182, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-js { filter: drop-shadow(0 0 5px rgba(247, 223, 30, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-react { filter: drop-shadow(0 0 5px rgba(97, 218, 251, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-node-js { filter: drop-shadow(0 0 5px rgba(104, 160, 99, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-git-alt { filter: drop-shadow(0 0 5px rgba(240, 80, 50, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-bootstrap { filter: drop-shadow(0 0 5px rgba(123, 17, 147, 0.5)); }
+        .dark .tech-item:hover i.fab.fa-sass { filter: drop-shadow(0 0 5px rgba(204, 102, 153, 0.5)); }
+        
+        @keyframes tech-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tech-item {
+                width: 100px;
+                height: 100px;
+                margin: 0 10px;
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tech-item {
+                width: 80px;
+                height: 80px;
+                margin: 0 8px;
+                padding: 8px;
+            }
+            
+            .tech-item i {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        /* Social icon styled with theme colors */
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 107, 0, 0.1);
+            color: var(--color-text-accent);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--color-text-accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .social-icon-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 107, 0, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon-footer:hover {
+            background-color: var(--color-text-accent);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="font-sans overflow-x-hidden">
+    <!-- NAVIGATION SECTION -->
+    <header class="nav-container bg-primary text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- CUSTOMIZE: Your Name/Logo -->
+            <h1 class="text-xl font-bold text-secondary">Your Name</h1>
+            <nav class="hidden md:flex items-center">
+                <ul class="flex space-x-6 mr-6">
+                    <li><a href="#about" class="hover:text-secondary transition-colors">About</a></li>
+                    <li><a href="#projects" class="hover:text-secondary transition-colors">Projects</a></li>
+                    <li><a href="#skills" class="hover:text-secondary transition-colors">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-secondary transition-colors">Contact</a></li>
+                </ul>
+                <button id="themeToggle" class="bg-secondary text-white p-2 rounded-full focus:outline-none hover:bg-secondary-light transition-colors" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon" id="dark-icon"></i>
+                    <i class="fas fa-sun hidden" id="light-icon"></i>
+                </button>
+            </nav>
+            <button id="mobileMenuToggle" class="md:hidden text-white focus:outline-none" aria-label="Toggle Mobile Menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenuBackdrop" class="backdrop hidden"></div>
+    <div id="mobileMenu" class="mobile-menu bg-primary text-white p-6 fixed top-0 right-0 w-3/4 h-full z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-xl font-bold text-secondary">Menu</h2>
+            <button id="mobileMenuClose" class="text-white focus:outline-none">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <ul class="space-y-4 mb-8">
+            <li><a href="#about" class="block py-2 hover:text-secondary transition-colors mobile-link">About</a></li>
+            <li><a href="#projects" class="block py-2 hover:text-secondary transition-colors mobile-link">Projects</a></li>
+            <li><a href="#skills" class="block py-2 hover:text-secondary transition-colors mobile-link">Skills</a></li>
+            <li><a href="#contact" class="block py-2 hover:text-secondary transition-colors mobile-link">Contact</a></li>
+        </ul>
+        <button id="mobileThemeToggle" class="bg-secondary text-white p-3 rounded-full w-full flex justify-center items-center space-x-2 focus:outline-none hover:bg-secondary-light transition-colors">
+            <i class="fas fa-moon" id="mobile-dark-icon"></i>
+            <i class="fas fa-sun hidden" id="mobile-light-icon"></i>
+            <span>Switch Theme</span>
+        </button>
+    </div>
+
+    <!-- HERO SECTION -->
+    <!-- CUSTOMIZE: Your introduction, image, and call-to-action -->
+    <section id="hero" class="relative bg-gradient-subtle text-white py-32 overflow-hidden mt-16">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute h-40 w-40 rounded-full bg-secondary blur-3xl top-20 left-20"></div>
+            <div class="absolute h-60 w-60 rounded-full bg-primary blur-3xl bottom-20 right-20"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between">
+                <div class="max-w-xl md:w-1/2">
+                    <div class="inline-block px-3 py-1 mb-6 rounded-full glass-effect text-xs font-semibold">
+                        <span>👋 Welcome to my portfolio</span>
+                    </div>
+                    <!-- CUSTOMIZE: Your name and title -->
+                    <h1 class="text-4xl sm:text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Hello, I'm <span class="text-secondary">Your Name</span></h1>
+                    <h2 class="text-xl sm:text-2xl mb-4 animate__animated animate__fadeInUp animate__delay-1s">Software Developer</h2>
+                    <p class="text-lg sm:text-xl mb-8 animate__animated animate__fadeInUp animate__delay-2s">I build things for the web</p>
+                    <div class="flex flex-wrap gap-4 animate__animated animate__fadeInUp animate__delay-3s">
+                        <a href="#contact" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary-light transition-colors transform hover:scale-105">Get In Touch</a>
+                        <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-colors transform hover:scale-105">View My Work</a>
+                    </div>
+                    <div class="mt-10 flex space-x-4">
+                        <!-- CUSTOMIZE: Your social media links -->
+                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors" aria-label="Github">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </a>
+                        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3 relative mb-10 md:mb-0 animate__animated animate__fadeIn animate__delay-1s">
+                    <div class="absolute -top-6 -left-6 w-full h-full border-2 border-secondary rounded-full opacity-30"></div>
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary rounded-full opacity-30"></div>
+                    <!-- CUSTOMIZE: Your profile image -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Your Profile Picture" 
+                         class="rounded-full shadow-lg w-64 h-64 object-cover mx-auto relative z-10 border-4 border-secondary animate-float">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <a href="#about" class="text-white opacity-80 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-down text-xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Simple separator instead of shape divider -->
+    <div class="section-separator"></div>
+
+    <!-- ABOUT SECTION -->
+    <!-- CUSTOMIZE: Your background, experience, and skills -->
+    <section id="about" class="py-24 relative reveal" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-16">
+                <h2 class="text-3xl font-bold relative inline-block">
+                    <span class="relative z-10 text-gradient">About Me</span>
+                    <span class="absolute -bottom-2 left-0 w-full h-3 bg-secondary opacity-30 rounded"></span>
+                </h2>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                <div class="flex flex-col sm:flex-row gap-8">
+                    <div class="sm:w-1/3">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-6">
+                            <h3 class="font-bold text-lg text-center border-b border-gray-200 dark:border-gray-600 pb-2 mb-3">Experience</h3>
+                            <p class="text-center text-3xl font-bold text-secondary">5+ Years</p>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-center border-b border-gray-200 dark:border-gray-600 pb-2 mb-3">Education</h3>
+                            <p class="text-center text-secondary font-semibold">Computer Science</p>
+                            <p class="text-center text-gray-500 dark:text-gray-400 text-sm">University Name</p>
+                        </div>
+                    </div>
+                    <div class="sm:w-2/3">
+                        <p class="mb-4 text-lg leading-relaxed">Hello! I'm a passionate software developer with experience in building web applications. I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.</p>
+                        <p class="mb-6 text-lg leading-relaxed">I'm passionate about crafting clean, maintainable code that solves real-world problems. With a focus on user experience and performance, I aim to create applications that are both functional and beautiful.</p>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold mb-2">Core Technologies:</h3>
+                            <ul class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8 tech-stack">
+                                <li class="flex items-center p-2 rounded-lg theme-card shadow-sm hover:shadow-md transition-all">
+                                    <span class="text-secondary mr-2 text-xl">▹</span>
+                                    <span>JavaScript</span>
+                                </li>
+                                <li class="flex items-center p-2 rounded-lg theme-card shadow-sm hover:shadow-md transition-all">
+                                    <span class="text-secondary mr-2 text-xl">▹</span>
+                                    <span>React</span>
+                                </li>
+                                <li class="flex items-center p-2 rounded-lg theme-card shadow-sm hover:shadow-md transition-all">
+                                    <span class="text-secondary mr-2 text-xl">▹</span>
+                                    <span>Node.js</span>
+                                </li>
+                                <li class="flex items-center p-2 rounded-lg theme-card shadow-sm hover:shadow-md transition-all">
+                                    <span class="text-secondary mr-2 text-xl">▹</span>
+                                    <span>HTML & CSS</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="resume.pdf" download class="inline-flex items-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-light transition-colors">
+                            <i class="fas fa-download mr-2"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple separator instead of shape divider -->
+    <div class="section-separator"></div>
+
+    <!-- PROJECTS SECTION -->
+    <!-- CUSTOMIZE: Your portfolio projects -->
+    <section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden reveal" data-aos="fade-up" data-aos-duration="1000">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute h-40 w-40 rounded-full bg-secondary blur-3xl top-20 left-1/4"></div>
+            <div class="absolute h-60 w-60 rounded-full bg-primary blur-3xl bottom-20 right-1/4"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col items-center mb-16">
+                <h2 class="text-3xl font-bold relative inline-block mb-4">
+                    <span class="relative z-10 text-gradient">Projects</span>
+                    <span class="absolute -bottom-2 left-0 w-full h-3 bg-secondary opacity-30 rounded"></span>
+                </h2>
+                <p class="text-center max-w-2xl text-gray-600 dark:text-gray-300">Here are some of my recent projects. Each one was a unique challenge that helped me grow as a developer.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group h-full" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="theme-card rounded-xl overflow-hidden shadow-lg card-hover relative h-full flex flex-col">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-0 group-hover:opacity-80 transition-opacity z-10 flex items-center justify-center">
+                            <div class="text-white text-center p-4 transform translate-y-10 group-hover:translate-y-0 transition-transform">
+                                <h4 class="text-xl font-bold mb-2">View Project Details</h4>
+                                <div class="flex justify-center space-x-4 mt-4">
+                                    <a href="#" class="bg-white text-primary px-4 py-2 rounded-lg font-medium transition-colors">Demo</a>
+                                    <a href="#" class="border border-white text-white px-4 py-2 rounded-lg font-medium transition-colors">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Project 1" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform">
+                        <div class="p-6 border-t border-gray-100 dark:border-gray-700 flex-grow flex flex-col">
+                            <div class="flex items-center mb-2">
+                                <h3 class="text-xl font-bold">Project One</h3>
+                                <div class="ml-auto">
+                                    <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">Featured</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">A full-stack web application with user authentication, real-time updates, and a responsive design. Built with React and Node.js.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">React</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">Node.js</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group h-full" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="theme-card rounded-xl overflow-hidden shadow-lg card-hover relative h-full flex flex-col">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-0 group-hover:opacity-80 transition-opacity z-10 flex items-center justify-center">
+                            <div class="text-white text-center p-4 transform translate-y-10 group-hover:translate-y-0 transition-transform">
+                                <h4 class="text-xl font-bold mb-2">View Project Details</h4>
+                                <div class="flex justify-center space-x-4 mt-4">
+                                    <a href="#" class="bg-white text-primary px-4 py-2 rounded-lg font-medium transition-colors">Demo</a>
+                                    <a href="#" class="border border-white text-white px-4 py-2 rounded-lg font-medium transition-colors">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Project 2" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform">
+                        <div class="p-6 border-t border-gray-100 dark:border-gray-700 flex-grow flex flex-col">
+                            <div class="flex items-center mb-2">
+                                <h3 class="text-xl font-bold">Project Two</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">A mobile-first e-commerce platform with a custom shopping cart implementation and secure payment processing. Uses Vue.js and Firebase.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">Vue.js</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">Firebase</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">Stripe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group h-full" data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="theme-card rounded-xl overflow-hidden shadow-lg card-hover relative h-full flex flex-col">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-0 group-hover:opacity-80 transition-opacity z-10 flex items-center justify-center">
+                            <div class="text-white text-center p-4 transform translate-y-10 group-hover:translate-y-0 transition-transform">
+                                <h4 class="text-xl font-bold mb-2">View Project Details</h4>
+                                <div class="flex justify-center space-x-4 mt-4">
+                                    <a href="#" class="bg-white text-primary px-4 py-2 rounded-lg font-medium transition-colors">Demo</a>
+                                    <a href="#" class="border border-white text-white px-4 py-2 rounded-lg font-medium transition-colors">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Project 3" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform">
+                        <div class="p-6 border-t border-gray-100 dark:border-gray-700 flex-grow flex flex-col">
+                            <div class="flex items-center mb-2">
+                                <h3 class="text-xl font-bold">Project Three</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">A data visualization dashboard for monitoring real-time metrics. Features interactive charts and customizable widgets. Built with Angular and D3.js.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">Angular</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">D3.js</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-primary dark:bg-gray-800 text-white rounded-lg hover:bg-gray-900 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fab fa-github mr-2"></i> View More Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple separator instead of shape divider -->
+    <div class="section-separator"></div>
+
+    <!-- SKILLS SECTION -->
+    <!-- CUSTOMIZE: Your skills and expertise -->
+    <section id="skills" class="py-24 relative reveal" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center mb-16">
+                <h2 class="text-3xl font-bold relative inline-block mb-4">
+                    <span class="relative z-10 text-gradient">Skills</span>
+                    <span class="absolute -bottom-2 left-0 w-full h-3 bg-secondary opacity-30 rounded"></span>
+                </h2>
+                <p class="text-center max-w-2xl text-gray-600 dark:text-gray-300">I'm continuously learning and improving my skills. Here's a snapshot of my current technical toolkit.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- Skill Categories -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <!-- Frontend Category -->
+                    <div class="theme-card p-6 rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-blue-500 dark:text-blue-300 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Frontend</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">HTML/CSS</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">React</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend Category -->
+                    <div class="theme-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-server text-green-500 dark:text-green-300 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Backend</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Node.js</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Express</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Databases</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools/Other Category -->
+                    <div class="theme-card p-6 rounded-xl shadow-lg" data-aos="fade-left" data-aos-delay="300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4">
+                                <i class="fas fa-toolbox text-purple-500 dark:text-purple-300 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Tools & Others</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Git/GitHub</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">UI/UX Design</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">DevOps</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technology logos -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-semibold text-center mb-8">Technologies I Work With</h3>
+                    
+                    <div class="tech-carousel">
+                        <div class="tech-track">
+                            <!-- First set of tech items -->
+                            <div class="tech-item">
+                                <i class="fab fa-html5 text-orange-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">HTML5</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">CSS3</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js text-yellow-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-react text-blue-400 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">React</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-node-js text-green-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Node.js</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-git-alt text-red-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Git</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-bootstrap text-purple-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Bootstrap</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-sass text-pink-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Sass</span>
+                            </div>
+                            
+                            <!-- Duplicate set for seamless looping -->
+                            <div class="tech-item">
+                                <i class="fab fa-html5 text-orange-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">HTML5</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">CSS3</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js text-yellow-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-react text-blue-400 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">React</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-node-js text-green-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Node.js</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-git-alt text-red-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Git</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-bootstrap text-purple-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Bootstrap</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-sass text-pink-500 text-4xl"></i>
+                                <span class="block text-center mt-2 text-sm">Sass</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple separator instead of shape divider -->
+    <div class="section-separator"></div>
+
+    <!-- CONTACT SECTION -->
+    <!-- CUSTOMIZE: Your contact information and form -->
+    <section id="contact" class="py-24 bg-gray-50 dark:bg-gray-900 relative reveal" data-aos="fade-up" data-aos-duration="1000">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute h-40 w-40 rounded-full bg-primary blur-3xl top-20 right-1/4"></div>
+            <div class="absolute h-60 w-60 rounded-full bg-secondary blur-3xl bottom-20 left-1/4"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col items-center mb-16">
+                <h2 class="text-3xl font-bold relative inline-block mb-4">
+                    <span class="relative z-10 text-gradient">Contact Me</span>
+                    <span class="absolute -bottom-2 left-0 w-full h-3 bg-secondary opacity-30 rounded"></span>
+                </h2>
+                <p class="text-center max-w-2xl text-gray-600 dark:text-gray-300">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Contact Information -->
+                    <div class="lg:w-2/5" data-aos="fade-right" data-aos-delay="100">
+                        <div class="theme-card rounded-xl shadow-lg p-8 h-full">
+                            <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-lg bg-secondary bg-opacity-20 flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-secondary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Email</h4>
+                                        <!-- CUSTOMIZE: Your email -->
+                                        <a href="mailto:hello@example.com" class="hover:text-secondary transition-colors">hello@example.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-lg bg-secondary bg-opacity-20 flex items-center justify-center mr-4">
+                                        <i class="fas fa-map-marker-alt text-secondary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Location</h4>
+                                        <!-- CUSTOMIZE: Your location -->
+                                        <p>San Francisco, CA</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-lg bg-secondary bg-opacity-20 flex items-center justify-center mr-4">
+                                        <i class="fas fa-phone-alt text-secondary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400">Call Me</h4>
+                                        <!-- CUSTOMIZE: Your phone number -->
+                                        <p>+1 (123) 456-7890</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10">
+                                <h4 class="text-lg font-semibold mb-4">Connect with me</h4>
+                                <div class="flex space-x-4">
+                                    <!-- CUSTOMIZE: Your social media links -->
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <!-- CUSTOMIZE: For a working form, add your form endpoint -->
+                    <!-- Options: Formspree, Netlify Forms, or your own backend -->
+                    <div class="lg:w-3/5" data-aos="fade-left" data-aos-delay="200">
+                        <div class="theme-card rounded-xl shadow-lg p-8">
+                            <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
+                            
+                            <form id="contact-form" class="space-y-4">
+                                <!-- For Formspree: action="https://formspree.io/f/your-form-id" method="POST" -->
+                                <!-- For Netlify: add attribute netlify -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="form-group">
+                                        <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                                        <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent dark:bg-gray-800 dark:text-white" placeholder="Your Name" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                        <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent dark:bg-gray-800 dark:text-white" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent dark:bg-gray-800 dark:text-white" placeholder="Subject" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                    <textarea id="message" name="message" rows="5" class="form-textarea w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent dark:bg-gray-800 dark:text-white" placeholder="Your Message" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:from-primary-dark hover:to-secondary-light transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary w-full">
+                                    <div class="flex items-center justify-center">
+                                        <span>Send Message</span>
+                                        <i class="fas fa-paper-plane ml-2"></i>
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <!-- CUSTOMIZE: Your footer information -->
+    <footer class="bg-gray-900 text-white py-10" data-aos="fade-up" data-aos-offset="0" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <!-- CUSTOMIZE: Your logo -->
+                        <img src="logo.png" alt="Logo" class="h-8 mr-2">
+                        <h3 class="text-xl font-bold">Portfolio</h3>
+                    </div>
+                    <!-- CUSTOMIZE: Your tagline -->
+                    <p class="text-gray-400 mt-2">Crafting digital experiences that make a difference.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 mb-4">
+                        <!-- CUSTOMIZE: Your social media links -->
+                        <a href="#" class="social-icon-footer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">&copy; <span id="current-year"></span> - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: true, // whether elements should animate out while scrolling past them
+            duration: 800, // global duration
+            easing: 'ease-in-out', // global easing
+            anchorPlacement: 'top-bottom', // which position of the element regarding to window should trigger the animation
+            disable: 'mobile', // accepts boolean or string with breakpoint (e.g. 'phone', 'tablet', 'mobile')
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            offset: 120, // offset (in px) from the original trigger point
+        });
+        
+        // Force refresh AOS when page is fully loaded
+        window.addEventListener('load', function() {
+            AOS.refresh();
+            
+            // Fix for footer animation - manually trigger animation after page is loaded
+            setTimeout(function() {
+                const footer = document.querySelector('footer');
+                if (footer) {
+                    footer.classList.add('aos-animate');
+                }
+            }, 500);
+        });
+        
+        // Reinitialize AOS when the theme changes
+        function reinitializeAOS() {
+            setTimeout(function() {
+                AOS.refresh();
+            }, 300);
+        }
+
+        // Get current year for footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const backdrop = document.getElementById('mobileMenuBackdrop');
+        const mobileCloseBtn = document.getElementById('mobileMenuClose');
+        
+        // Debug to check if elements are found
+        console.log('Mobile menu elements:', { 
+            menuBtn: menuBtn, 
+            mobileMenu: mobileMenu, 
+            backdrop: backdrop, 
+            mobileCloseBtn: mobileCloseBtn 
+        });
+        
+        if (menuBtn && mobileMenu && backdrop) {
+            menuBtn.addEventListener('click', () => {
+                console.log('Menu button clicked');
+                mobileMenu.classList.toggle('translate-x-full');
+                backdrop.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            });
+            
+            backdrop.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+            
+            if (mobileCloseBtn) {
+                mobileCloseBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    backdrop.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            }
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('#mobileMenu a.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    backdrop.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            });
+        }
+        
+        // Handle dark mode toggle
+        const darkModeToggle = document.getElementById('themeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileThemeToggle');
+        const darkIcon = document.getElementById('dark-icon');
+        const lightIcon = document.getElementById('light-icon');
+        const mobileDarkIcon = document.getElementById('mobile-dark-icon');
+        const mobileLightIcon = document.getElementById('mobile-light-icon');
+        
+        // Function to update theme icons
+        function updateThemeIcons(isDark) {
+            if (darkIcon && lightIcon) {
+                darkIcon.classList.toggle('hidden', isDark);
+                lightIcon.classList.toggle('hidden', !isDark);
+            }
+            
+            if (mobileDarkIcon && mobileLightIcon) {
+                mobileDarkIcon.classList.toggle('hidden', isDark);
+                mobileLightIcon.classList.toggle('hidden', !isDark);
+            }
+        }
+        
+        // Check for saved theme preference or use the system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateThemeIcons(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateThemeIcons(false);
+        }
+        
+        // Toggle theme function
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'light' : 'dark';
+            updateThemeIcons(!isDark);
+        }
+        
+        // Toggle dark mode with main button
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        // Toggle dark mode with mobile button
+        if (mobileDarkModeToggle) {
+            mobileDarkModeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to a server
+                // For demo purposes, let's just show a success message
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+        
+        // Add animation class to sections for scroll reveal
+        document.querySelectorAll('.reveal').forEach(element => {
+            element.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
+        });
+        
+        // Scroll reveal animation
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
+            
+            document.querySelectorAll('.reveal').forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.remove('opacity-0');
+                    element.classList.add('opacity-100');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // Initialize navbar scroll effect
+        const navbar = document.querySelector('.nav-container');
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Initial check
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            }
+        }
+    </script>
+</body>
+</html> 
