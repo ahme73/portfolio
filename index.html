@@ -11,7 +11,7 @@
 <html lang="en" class="light scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -21,6 +21,77 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <!-- Load configuration file -->
     <script src="config.js"></script>
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Fix the tech carousel to prevent horizontal scrolling */
+        .tech-carousel {
+            max-width: 100% !important;
+            overflow: hidden !important;
+            position: relative !important;
+        }
+        
+        /* Allow animation but prevent overflow */
+        .tech-track {
+            animation: tech-scroll 40s linear infinite !important;
+            max-width: none !important; /* Allow animation to work */
+            display: flex !important;
+            width: fit-content !important;
+        }
+        
+        /* Define the animation inline to ensure it works */
+        @keyframes tech-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 15px)); }
+        }
+        
+        /* Make blur elements not cause overflow */
+        .blur-3xl {
+            max-width: 30%;
+            max-height: 30%;
+        }
+        
+        /* Fix absolute positioned elements */
+        .absolute {
+            max-width: 100%;
+        }
+        
+        /* Hero section responsive fixes */
+        @media (max-width: 768px) {
+            #hero img {
+                max-width: 200px;
+                max-height: 200px;
+            }
+        }
+        
+        /* Mobile menu backdrop fix */
+        .backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .backdrop.active {
+            opacity: 1;
+            display: block;
+        }
+        
+        .mobile-menu {
+            z-index: 1001;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
     <script>
         // Use configuration for Tailwind
         tailwind.config = {
@@ -50,6 +121,71 @@
                 }
             }
         }
+        
+        // Inline mobile menu handler to prevent issues
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('mobileMenuToggle');
+            const close = document.getElementById('mobileMenuClose');
+            const menu = document.getElementById('mobileMenu');
+            const backdrop = document.getElementById('mobileMenuBackdrop');
+            const links = document.querySelectorAll('.mobile-link');
+            const menuIconOpen = document.querySelector('.menu-icon-open');
+            const menuIconClose = document.querySelector('.menu-icon-close');
+            let menuOpen = false;
+            
+            function openMenu() {
+                if (menuOpen) return;
+                menuOpen = true;
+                
+                // Show close icon, hide hamburger
+                menuIconOpen.classList.add('hidden');
+                menuIconClose.classList.remove('hidden');
+                
+                backdrop.classList.remove('hidden');
+                setTimeout(() => {
+                    menu.classList.remove('translate-x-full');
+                    document.body.classList.add('overflow-hidden');
+                }, 10);
+            }
+            
+            function closeMenu() {
+                if (!menuOpen) return;
+                menuOpen = false;
+                
+                // Show hamburger, hide close icon
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+                
+                menu.classList.add('translate-x-full');
+                document.body.classList.remove('overflow-hidden');
+                setTimeout(() => {
+                    backdrop.classList.add('hidden');
+                }, 300);
+            }
+            
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (menuOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+            
+            close.addEventListener('click', closeMenu);
+            backdrop.addEventListener('click', closeMenu);
+            
+            links.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (menuOpen && !menu.contains(e.target) && e.target !== toggle) {
+                    closeMenu();
+                }
+            });
+        });
     </script>
 <link rel="stylesheet" href="./styles.css">
 </head>
@@ -71,18 +207,19 @@
                     <i class="fas fa-sun hidden" id="light-icon"></i>
                 </button>
             </nav>
-            <button id="mobileMenuToggle" class="md:hidden text-white focus:outline-none" aria-label="Toggle Mobile Menu">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="mobileMenuToggle" class="md:hidden text-white focus:outline-none hover:text-secondary transition-colors z-50" aria-label="Toggle Mobile Menu">
+                <i class="fas fa-bars text-xl menu-icon-open"></i>
+                <i class="fas fa-times text-xl menu-icon-close hidden"></i>
             </button>
         </div>
     </header>
 
     <!-- Mobile menu -->
-    <div id="mobileMenuBackdrop" class="backdrop hidden"></div>
-    <div id="mobileMenu" class="mobile-menu bg-primary text-white p-6 fixed top-0 right-0 w-3/4 h-full z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    <div id="mobileMenu" class="fixed top-0 right-0 w-3/4 h-full bg-primary text-white p-6 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-xl font-bold text-secondary">Menu</h2>
-            <button id="mobileMenuClose" class="text-white focus:outline-none">
+            <button id="mobileMenuClose" class="text-white focus:outline-none hover:text-secondary transition-colors">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
@@ -206,7 +343,7 @@
                 </h2>
                 <p class="text-center max-w-2xl text-gray-600 dark:text-gray-300">Here are some of my recent projects. Each one was a unique challenge that helped me grow as a developer.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid" id="projects-container">
                 <!-- Projects will be dynamically populated -->
             </div>
             
@@ -234,15 +371,15 @@
             
             <div class="max-w-5xl mx-auto">
                 <!-- Skill Categories -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="skill-categories">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 skill-categories" id="skill-categories">
                     <!-- Skill categories will be dynamically populated -->
                 </div>
                 
                 <!-- Technology logos -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
                     <h3 class="text-xl font-semibold text-center mb-8">Technologies I Work With</h3>
                     
-                    <div class="tech-carousel">
+                    <div class="tech-carousel overflow-hidden relative">
                         <div class="tech-track" id="tech-track">
                             <!-- Tech items will be dynamically populated -->
                         </div>
@@ -271,7 +408,7 @@
             </div>
             
             <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col lg:flex-row gap-8">
+                <div class="flex flex-col lg:flex-row gap-8 contact-grid">
                     <!-- Contact Information -->
                     <div class="lg:w-2/5" data-aos="fade-right" data-aos-delay="100">
                         <div class="theme-card rounded-xl shadow-lg p-8 h-full">
