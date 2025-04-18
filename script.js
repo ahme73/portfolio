@@ -141,14 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${tagsHtml}
                     </div>
-                    <div class="flex justify-between mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
-                        <a href="${project.links.demo || '#'}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
-                            <i class="fas fa-external-link-alt mr-1"></i> Demo
-                        </a>
-                        <a href="${project.links.code || '#'}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
-                            <i class="fas fa-code mr-1"></i> View Code
-                        </a>
-                    </div>
                 </div>
             </div>
         `;
