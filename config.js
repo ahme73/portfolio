@@ -14,7 +14,7 @@ const portfolioConfig = {
     location: "San Francisco, CA",
     resumeLink: "resume.pdf",
     welcomeText: "👋 Welcome to my portfolio",
-    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    profileImage: "./5193088002212098170_121.jpg"
   },
   
   // Social Media Links
@@ -93,7 +93,7 @@ const portfolioConfig = {
     {
       title: "Project One",
       description: "A full-stack web application with user authentication, real-time updates, and a responsive design. Built with React and Node.js.",
-      image: "5193088002212098170_121.jpg",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       tags: ["React", "Node.js", "MongoDB"],
       links: {
         demo: "https://project-one-demo.example.com",
