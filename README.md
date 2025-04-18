@@ -2,6 +2,8 @@
 
 A modern, responsive developer portfolio template built with HTML, CSS, JavaScript, and configuration options. This template features dark/light mode, smooth animations, and sections for showcasing your skills, projects, and contact information.
 
+[Preview](https://hu55ain3laa.github.io/One-Page-Developer-Portfolio/)
+
 ## Features
 
 - **Modular Structure**: Organized with separate HTML, CSS, JavaScript, and configuration files
