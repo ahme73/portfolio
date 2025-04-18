@@ -1,0 +1,405 @@
+:root {
+    --color-bg-primary: var(--light-bg-primary, #ffffff);
+    --color-bg-secondary: var(--light-bg-secondary, #f5f5f5);
+    --color-bg-accent: var(--light-bg-accent, #FF6B00);
+    --color-text-primary: var(--light-text-primary, #111111);
+    --color-text-secondary: var(--light-text-secondary, #333333);
+    --color-text-accent: var(--light-text-accent, #FF6B00);
+    --color-bg-card: var(--light-bg-card, #ffffff);
+    --color-bg-gradient-from: var(--light-bg-gradient-from, #111111);
+    --color-bg-gradient-to: var(--light-bg-gradient-to, #FF6B00);
+    --color-border: var(--light-border, #e5e7eb);
+    --color-button: var(--light-button, #FF6B00);
+    --color-button-hover: var(--light-button-hover, #FF8A3D);
+}
+
+.dark {
+    --color-bg-primary: var(--dark-bg-primary, #111111);
+    --color-bg-secondary: var(--dark-bg-secondary, #1e1e1e);
+    --color-bg-accent: var(--dark-bg-accent, #FF6B00);
+    --color-text-primary: var(--dark-text-primary, #f9fafb);
+    --color-text-secondary: var(--dark-text-secondary, #e5e7eb);
+    --color-text-accent: var(--dark-text-accent, #FF8A3D);
+    --color-bg-card: var(--dark-bg-card, #1a1a1a);
+    --color-bg-gradient-from: var(--dark-bg-gradient-from, #000000);
+    --color-bg-gradient-to: var(--dark-bg-gradient-to, #FF6B00);
+    --color-border: var(--dark-border, #2e2e2e);
+    --color-button: var(--dark-button, #FF6B00);
+    --color-button-hover: var(--dark-button-hover, #E95800);
+}
+
+/* Rest of the styles - you can keep these as is */
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.clip-path-diagonal {
+    /* Removing clip path to prevent content from being cut */
+    clip-path: none;
+    -webkit-clip-path: none;
+    position: relative;
+    z-index: 1;
+}
+.clip-path-diagonal-reverse {
+    /* Removing clip path to prevent content from being cut */
+    clip-path: none;
+    -webkit-clip-path: none;
+    position: relative;
+    z-index: 1;
+}
+.bg-gradient-creative {
+    background: linear-gradient(135deg, #111111, #222222, #333333, #FF6B00);
+    background-size: 100% 100%;
+}
+.bg-gradient-subtle {
+    background: linear-gradient(135deg, var(--color-bg-gradient-from) 0%, #333333 50%, var(--color-bg-gradient-to) 100%);
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.tech-stack li {
+    transition: all 0.3s ease;
+}
+.tech-stack li:hover {
+    transform: translateY(-5px);
+}
+.card-hover {
+    transition: all 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+@media (max-width: 768px) {
+    .clip-path-diagonal, .clip-path-diagonal-reverse {
+        clip-path: none;
+        -webkit-clip-path: none;
+    }
+}
+@-webkit-keyframes float {
+    0%, 100% { -webkit-transform: translateY(0); transform: translateY(0); }
+    50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+    -webkit-animation: float 3s ease-in-out infinite;
+}
+/* Add clean section separators */
+.section-separator {
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-bg-gradient-from), var(--color-bg-gradient-to), var(--color-bg-gradient-from));
+    width: 100%;
+    margin: 0;
+}
+.theme-card {
+    background-color: var(--color-bg-card);
+    border-color: var(--color-border);
+}
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+.nav-scrolled {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    z-index: 9999;
+    transition: right 0.3s ease;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animated scroll down indicator */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* Glass effect for cards */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-effect {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Text gradient */
+.text-gradient {
+    background: linear-gradient(to right, var(--color-bg-gradient-from), var(--color-bg-gradient-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Add dark mode specific gradient for better visibility */
+.dark .text-gradient {
+    background: linear-gradient(to right, #ffffff, var(--color-text-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Section titles improvement */
+section h2 .relative.z-10 {
+    display: inline-block;
+    position: relative;
+    padding: 0 0.5rem;
+}
+
+/* Make the section title accent span more visible in dark mode */
+.dark section h2 .absolute {
+    background-color: var(--color-text-accent);
+    opacity: 0.4;
+}
+
+/* Pulsing animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulsing {
+    animation: pulse 2s infinite;
+}
+
+.revealed {
+    opacity: 1 !important;
+}
+
+/* Tech carousel styles */
+.tech-carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+}
+
+.tech-track {
+    display: flex;
+    width: fit-content;
+    animation: tech-scroll 40s linear infinite;
+}
+
+.tech-track:hover {
+    animation-play-state: paused;
+}
+
+.tech-item {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
+    margin: 0 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-text-accent);
+}
+
+/* Dark mode specific tech-item styling */
+.dark .tech-item {
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.dark .tech-item:hover {
+    background-color: #222222;
+    border-color: var(--color-text-accent);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--color-text-accent);
+}
+
+/* Ensuring text is readable in dark mode */
+.dark .tech-item span {
+    color: rgba(229, 231, 235, 0.9); /* Light gray for better contrast */
+}
+
+/* Tech icons color enhancement */
+.tech-item i {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+}
+
+.tech-item:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
+}
+
+.dark .tech-item i {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Subtle glow effect for icons in dark mode */
+.dark .tech-item:hover i.fab.fa-html5 { filter: drop-shadow(0 0 5px rgba(230, 81, 0, 0.5)); }
+.dark .tech-item:hover i.fab.fa-css3-alt { filter: drop-shadow(0 0 5px rgba(21, 114, 182, 0.5)); }
+.dark .tech-item:hover i.fab.fa-js { filter: drop-shadow(0 0 5px rgba(247, 223, 30, 0.5)); }
+.dark .tech-item:hover i.fab.fa-react { filter: drop-shadow(0 0 5px rgba(97, 218, 251, 0.5)); }
+.dark .tech-item:hover i.fab.fa-node-js { filter: drop-shadow(0 0 5px rgba(104, 160, 99, 0.5)); }
+.dark .tech-item:hover i.fab.fa-git-alt { filter: drop-shadow(0 0 5px rgba(240, 80, 50, 0.5)); }
+.dark .tech-item:hover i.fab.fa-bootstrap { filter: drop-shadow(0 0 5px rgba(123, 17, 147, 0.5)); }
+.dark .tech-item:hover i.fab.fa-sass { filter: drop-shadow(0 0 5px rgba(204, 102, 153, 0.5)); }
+
+@keyframes tech-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-item {
+        width: 100px;
+        height: 100px;
+        margin: 0 10px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-item {
+        width: 80px;
+        height: 80px;
+        margin: 0 8px;
+        padding: 8px;
+    }
+    
+    .tech-item i {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* Social icon styled with theme colors */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 107, 0, 0.1);
+    color: var(--color-text-accent);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--color-text-accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 107, 0, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-icon-footer:hover {
+    background-color: var(--color-text-accent);
+    transform: translateY(-3px);
+}
