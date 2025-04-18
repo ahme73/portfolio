@@ -5,14 +5,9 @@ AOS.init({
     duration: 800, // global duration
     easing: 'ease-in-out', // global easing
     anchorPlacement: 'top-bottom', // which position of the element regarding to window should trigger the animation
-    disable: false, // changed from 'mobile' to false to enable on all devices
+    disable: 'mobile', // accepts boolean or string with breakpoint (e.g. 'phone', 'tablet', 'mobile')
     startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
     offset: 120, // offset (in px) from the original trigger point
-});
-
-// Reinitialize AOS when window is resized
-window.addEventListener('resize', function() {
-    AOS.refresh();
 });
 
 // Apply configuration to DOM elements
@@ -45,38 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('linkedin-link').href = portfolioConfig.socialMedia.linkedin;
     document.getElementById('twitter-link').href = portfolioConfig.socialMedia.twitter;
     document.getElementById('github-projects-link').href = portfolioConfig.socialMedia.github;
-    
-    // Set all footer social media links
-    const footerSocialLinks = document.querySelectorAll('footer .social-icon-footer');
-    if (footerSocialLinks.length > 0) {
-        // LinkedIn
-        if (footerSocialLinks[0] && portfolioConfig.socialMedia.linkedin) {
-            footerSocialLinks[0].href = portfolioConfig.socialMedia.linkedin;
-            footerSocialLinks[0].setAttribute('target', '_blank');
-            footerSocialLinks[0].setAttribute('rel', 'noopener noreferrer');
-        }
-        
-        // GitHub
-        if (footerSocialLinks[1] && portfolioConfig.socialMedia.github) {
-            footerSocialLinks[1].href = portfolioConfig.socialMedia.github;
-            footerSocialLinks[1].setAttribute('target', '_blank');
-            footerSocialLinks[1].setAttribute('rel', 'noopener noreferrer');
-        }
-        
-        // Twitter
-        if (footerSocialLinks[2] && portfolioConfig.socialMedia.twitter) {
-            footerSocialLinks[2].href = portfolioConfig.socialMedia.twitter;
-            footerSocialLinks[2].setAttribute('target', '_blank');
-            footerSocialLinks[2].setAttribute('rel', 'noopener noreferrer');
-        }
-        
-        // Instagram
-        if (footerSocialLinks[3] && portfolioConfig.socialMedia.instagram) {
-            footerSocialLinks[3].href = portfolioConfig.socialMedia.instagram;
-            footerSocialLinks[3].setAttribute('target', '_blank');
-            footerSocialLinks[3].setAttribute('rel', 'noopener noreferrer');
-        }
-    }
     
     // Set resume link
     document.getElementById('resume-link').href = portfolioConfig.personalInfo.resumeLink;
@@ -126,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="text-white text-center p-4 transform translate-y-10 group-hover:translate-y-0 transition-transform">
                         <h4 class="text-xl font-bold mb-2">View Project Details</h4>
                         <div class="flex justify-center space-x-4 mt-4">
-                            <a href="${project.links.demo || '#'}" target="_blank" rel="noopener noreferrer" class="bg-white text-primary px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">Demo</a>
-                            <a href="${project.links.code || '#'}" target="_blank" rel="noopener noreferrer" class="border border-white text-white px-4 py-2 rounded-lg font-medium transition-colors hover:bg-white hover:text-primary">Code</a>
+                            <a href="${project.links.demo}" class="bg-white text-primary px-4 py-2 rounded-lg font-medium transition-colors">Demo</a>
+                            <a href="${project.links.code}" class="border border-white text-white px-4 py-2 rounded-lg font-medium transition-colors">Code</a>
                         </div>
                     </div>
                 </div>
@@ -140,14 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">${project.description}</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${tagsHtml}
-                    </div>
-                    <div class="flex justify-between mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
-                        <a href="${project.links.demo || '#'}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
-                            <i class="fas fa-external-link-alt mr-1"></i> Demo
-                        </a>
-                        <a href="${project.links.code || '#'}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
-                            <i class="fas fa-code mr-1"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -296,9 +251,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize mobile menu functionality
 function initMobileMenu() {
-    // Mobile menu is now handled by inline script in the HTML
-    // This function is kept to avoid breaking the initialization flow
-    console.log("Mobile menu initialized via inline script");
+    const menuBtn = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const mobileCloseBtn = document.getElementById('mobileMenuClose');
+    
+    if (menuBtn && mobileMenu && backdrop) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+            backdrop.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+        
+        backdrop.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            backdrop.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+        
+        if (mobileCloseBtn) {
+            mobileCloseBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobileMenu a.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+    }
 }
 
 // Initialize theme toggle functionality

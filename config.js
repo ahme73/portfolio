@@ -96,8 +96,8 @@ const portfolioConfig = {
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       tags: ["React", "Node.js", "MongoDB"],
       links: {
-        demo: "https://project-one-demo.example.com",
-        code: "https://github.com/yourusername/project-one"
+        demo: "#",
+        code: "#"
       },
       featured: true
     },
@@ -107,8 +107,8 @@ const portfolioConfig = {
       image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       tags: ["Vue.js", "Firebase", "Stripe"],
       links: {
-        demo: "https://project-two-demo.example.com",
-        code: "https://github.com/yourusername/project-two"
+        demo: "#",
+        code: "#"
       },
       featured: false
     },
@@ -118,8 +118,8 @@ const portfolioConfig = {
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       tags: ["Angular", "D3.js", "MongoDB"],
       links: {
-        demo: "https://project-three-demo.example.com",
-        code: "https://github.com/yourusername/project-three"
+        demo: "#",
+        code: "#"
       },
       featured: false
     }
