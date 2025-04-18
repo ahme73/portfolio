@@ -6,7 +6,7 @@
 const portfolioConfig = {
   // Personal Information
   personalInfo: {
-    name: "Your Name",
+    name: "Ahmed Abdul Ameer",
     title: "Software Developer",
     tagline: "I build things for the web",
     email: "hello@example.com",
