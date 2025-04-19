@@ -9,9 +9,9 @@ const portfolioConfig = {
     name: "Ahmed Abdul Ameer",
     title: "Software Developer",
     tagline: "I build things for the web",
-    email: "hello@example.com",
-    phone: "+1 (123) 456-7890",
-    location: "San Francisco, CA",
+    email: "ahmed68257@gmail.com",
+    phone: "+964 7717047900",
+    location: "Baghdad, Iraq",
     resumeLink: "resume.pdf",
     welcomeText: "👋 Welcome to my portfolio",
     profileImage: "./5193088002212098170_121.jpg"
@@ -19,9 +19,9 @@ const portfolioConfig = {
   
   // Social Media Links
   socialMedia: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    github: "https://github.com/ahme73",
+    linkedin: "https://www.linkedin.com/in/ahmed-abdul-amir-a641a3229/",
+    twitter: "https://x.com/ah7_3",
     instagram: "https://instagram.com/yourusername"
   },
   
@@ -72,17 +72,18 @@ const portfolioConfig = {
   // About Section
   about: {
     description: [
-      "Hello! I'm a passionate software developer with experience in building web applications. I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.",
+      "Hello, I'm Ahmed. I'm passionate about technology and programming, especially in the field of automation. I aspire to become a DevOps programmer. I enjoy self-learning and am currently working on developing my skills in various fields, including:",
+      "C++ and JavaScript programming, backend development using Node.js, interface design using HTML and CSS, electronic control using Arduino, and networking and servers as part of the CCNA track.",
       "I'm passionate about crafting clean, maintainable code that solves real-world problems. With a focus on user experience and performance, I aim to create applications that are both functional and beautiful."
     ],
-    experienceYears: "5+",
+    experienceYears: "3+",
     education: {
       degree: "Computer Science",
       university: "University Of Technology"
     },
     coreTechnologies: [
+      "Python",
       "JavaScript",
-      "React",
       "Node.js",
       "HTML & CSS"
     ]
