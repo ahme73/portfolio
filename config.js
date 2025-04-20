@@ -106,7 +106,7 @@ const portfolioConfig = {
       title: "Project Two",
       description: "A smart home system powered by Arduino, featuring sensor integration, automated lighting, fingerprint access, and environmental monitoring. Built using Arduino and compatible modules.",
       image: "./2c4d6dc5-ad70-4138-91b1-439be7a51db9.png",
-      tags: ["Arduino", "C++"],
+      tags: ["Raspberry Pi"],
       links: {
         demo: "https://project-two-demo.example.com",
         code: "https://github.com/yourusername/project-two"
