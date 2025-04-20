@@ -74,7 +74,7 @@ const portfolioConfig = {
     description: [
       "Hello, I'm Ahmed. I'm passionate about technology and programming, especially in the field of automation. I aspire to become a DevOps programmer. I enjoy self-learning and am currently working on developing my skills in various fields, including:",
       "C++ and JavaScript programming, backend development using Node.js, interface design using HTML and CSS, electronic control using Arduino, and networking and servers as part of the CCNA track.",
-      "I'm passionate about crafting clean, maintainable code that solves real-world problems. With a focus on user experience and performance, I aim to create applications that are both functional and beautiful."
+      "I'm passionate about crafting clean, maintainable code that solves real-world problems. With a focus on user experience and performance, I aim to create applications that are both functional and beautiful.",
     ],
     experienceYears: "3+",
     education: {
@@ -94,8 +94,8 @@ const portfolioConfig = {
     {
       title: "Project One",
       description: "A full-stack web application with user authentication, real-time updates, and a responsive design. Built with React and Node.js.",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["React", "Node.js", "MongoDB"],
+      image: "./ccef3fb5-07db-4a43-a402-4e7951c0ef6a.png",
+      tags: ["Arduino", "C++"],
       links: {
         demo: "https://project-one-demo.example.com",
         code: "https://github.com/yourusername/project-one"
@@ -154,9 +154,9 @@ const portfolioConfig = {
         icon: "fas fa-toolbox",
         iconColor: "purple",
         skills: [
-          { name: "Git/GitHub", level: 90 },
-          { name: "UI/UX Design", level: 70 },
-          { name: "DevOps", level: 65 }
+          { name: "Git/GitHub", level: 65 },
+          { name: "UI/UX Design", level: 30 },
+          { name: "DevOps", level: 30 }
         ]
       }
     ],
