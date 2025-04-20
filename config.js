@@ -22,7 +22,7 @@ const portfolioConfig = {
     github: "https://github.com/ahme73",
     linkedin: "https://www.linkedin.com/in/ahmed-abdul-amir-a641a3229/",
     twitter: "https://x.com/ah7_3",
-    instagram: "https://instagram.com/yourusername"
+    instagram: "https://www.instagram.com/ah7.3/"
   },
   
   // Theme Colors
@@ -93,7 +93,7 @@ const portfolioConfig = {
   projects: [
     {
       title: "Project One",
-      description: "A full-stack web application with user authentication, real-time updates, and a responsive design. Built with React and Node.js.",
+      description: "An Arduino-powered smart parking system with ultrasonic sensors for slot detection, an LCD for live status display, RFID-based access control, and an automated gate using a servo motor. Designed for efficient vehicle management and real-time monitoring.",
       image: "./ccef3fb5-07db-4a43-a402-4e7951c0ef6a.png",
       tags: ["Arduino", "C++"],
       links: {
