@@ -104,9 +104,9 @@ const portfolioConfig = {
     },
     {
       title: "Project Two",
-      description: "A mobile-first e-commerce platform with a custom shopping cart implementation and secure payment processing. Uses Vue.js and Firebase.",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Vue.js", "Firebase", "Stripe"],
+      description: "A smart home system powered by Arduino, featuring sensor integration, automated lighting, fingerprint access, and environmental monitoring. Built using Arduino and compatible modules.",
+      image: "./2c4d6dc5-ad70-4138-91b1-439be7a51db9.png",
+      tags: ["Arduino", "C++"],
       links: {
         demo: "https://project-two-demo.example.com",
         code: "https://github.com/yourusername/project-two"
@@ -115,9 +115,10 @@ const portfolioConfig = {
     },
     {
       title: "Project Three",
-      description: "A data visualization dashboard for monitoring real-time metrics. Features interactive charts and customizable widgets. Built with Angular and D3.js.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Angular", "D3.js", "MongoDB"],
+      tags: ["HTML", "Tailwind CSS", "SQL Light"],
+      description: "A data visualization dashboard for monitoring real-time metrics. Features interactive charts and customizable widgets. Built with HTML, Tailwind and SQL Light.",
+      image: "./ccef3fb5-07db-4a43-a402-4e7951c0ef6aFAW.png",
+      tags: ["HTML", "Tailwind CSS", "DP SQL Light"],
       links: {
         demo: "https://project-three-demo.example.com",
         code: "https://github.com/yourusername/project-three"
