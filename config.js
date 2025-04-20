@@ -118,7 +118,7 @@ const portfolioConfig = {
       tags: ["HTML", "Tailwind CSS", "SQL Light"],
       description: "A data visualization dashboard for monitoring real-time metrics. Features interactive charts and customizable widgets. Built with HTML, Tailwind and SQL Light.",
       image: "./ccef3fb5-07db-4a43-a402-4e7951c0ef6aFAW.png",
-      tags: ["HTML", "Tailwind CSS", "DP SQL Light"],
+      tags: ["HTML", "Tailwind CSS", "DB SQLite"],
       links: {
         demo: "https://project-three-demo.example.com",
         code: "https://github.com/yourusername/project-three"
